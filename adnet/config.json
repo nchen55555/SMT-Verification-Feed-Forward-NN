@@ -1,0 +1,17 @@
+{
+  "architectures": [
+    "Adnet"
+  ],
+  "hidden_size1": 512,
+  "hidden_size2": 1024,
+  "input_size": 2,
+  "license": "mit",
+  "model_name": "adnet",
+  "model_type": "adnet",
+  "output_size": 1,
+  "pipeline_tag": "adnet",
+  "repo_id": "basavyr/adnet",
+  "repo_url": "https://huggingface.co/basavyr/adnet",
+  "torch_dtype": "float32",
+  "transformers_version": "4.44.2"
+}

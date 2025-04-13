@@ -1,0 +1,5 @@
+numpy
+torch
+z3-solver
+pip install git+https://github.com/huggingface/transformers.git
+safetensors 
