@@ -85,7 +85,6 @@ def verify_robustness(model, x_sample, epsilon, num_inputs=2):
     Returns:
     - is_robust: Boolean indicating whether the model is robust for this sample
     - counterexample: If not robust, a perturbed input that causes misclassification
-    - perturbed_class: The class predicted for the perturbed input
     """
     start_time = time.time()
     
@@ -109,8 +108,6 @@ def verify_robustness(model, x_sample, epsilon, num_inputs=2):
     # Encode the neural network for both original and perturbed inputs
     original_constraints, original_output_vars = encode_nn_in_z3(model, x_vars)
     perturbed_constraints, perturbed_output_vars = encode_nn_in_z3(model, x_perturbed)
-    
-    print("results", original_output_vars, perturbed_output_vars)
     # Add all constraints to the solver
     for constraint in original_constraints:
         solver.add(constraint)
@@ -260,7 +257,7 @@ with safe_open(weights_path, framework="pt", device="cpu") as f:
 model.load_state_dict(state_dict)
 model.eval()
 
-x_sample = torch.tensor([0.0, 1.0], dtype=torch.float32)  # shape (2,)
+x_sample = torch.tensor([10.111, 12.318], dtype=torch.float32)  # shape (2,)
 
 with torch.no_grad():
     prediction = model(x_sample)
